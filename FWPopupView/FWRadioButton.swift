@@ -228,9 +228,8 @@ extension FWRadioButton {
             if self.vProperty.selectedImage != nil && self.vProperty.unSelectedImage != nil {
                 self.radioImageView.image = selected ? self.vProperty.selectedImage : self.vProperty.unSelectedImage
             } else {
-                let url = Bundle(for: FWCustomSheetView.self).url(forResource: "FWPopupView", withExtension: "bundle")
-                if url != nil {
-                    let imageBundle = Bundle(url: url!)
+                let imageBundle = fwPopupResourceBundle()
+                if imageBundle != nil {
                     let path = imageBundle?.path(forResource: selected ? "rb_seleted@2x" : "rb_not_seleted@2x", ofType: "png")
                     if path != nil {
                         self.radioImageView.image = UIImage(contentsOfFile: path!)

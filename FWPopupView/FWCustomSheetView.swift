@@ -186,9 +186,8 @@ extension FWCustomSheetView {
             if property.closeImage != nil {
                 closeBtn.setImage(property.choiceImage!, for: .normal)
             } else {
-                let url = Bundle(for: FWCustomSheetView.self).url(forResource: "FWPopupView", withExtension: "bundle")
-                if url != nil {
-                    let imageBundle = Bundle(url: url!)
+                let imageBundle = fwPopupResourceBundle()
+                if imageBundle != nil {
                     let path = imageBundle?.path(forResource: "cs_close@3x", ofType: "png")
                     if path != nil {
                         closeBtn.setImage(UIImage(contentsOfFile: path!), for: .normal)
@@ -249,9 +248,8 @@ extension FWCustomSheetView {
                 if property.choiceImage != nil {
                     cell.accessoryView = UIImageView(image: property.choiceImage!)
                 } else {
-                    let url = Bundle(for: FWCustomSheetView.self).url(forResource: "FWPopupView", withExtension: "bundle")
-                    if url != nil {
-                        let imageBundle = Bundle(url: url!)
+                    let imageBundle = fwPopupResourceBundle()
+                    if imageBundle != nil {
                         let path = imageBundle?.path(forResource: "cs_choice@3x", ofType: "png")
                         if path != nil {
                             cell.accessoryView = UIImageView(image: UIImage(contentsOfFile: path!))
